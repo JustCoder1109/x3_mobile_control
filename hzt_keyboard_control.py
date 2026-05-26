@@ -1,14 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
 
 #public lib
-# import sys
-# import math
-# import random
-# import threading
-# from math import pi
-# from time import sleep
-# from Rosmaster_Lib import Rosmaster
 import select
 import sys
 import termios
@@ -18,13 +11,10 @@ import tty
 #ros lib
 import rclpy
 from rclpy.node import Node
-# from std_msgs.msg import String,Float32,Int32,Bool
 from geometry_msgs.msg import Twist
-# from sensor_msgs.msg import Imu,MagneticField, JointState
-# from rclpy.clock import Clock
 
 LINEAR_SPEED = 0.3
-ANGULAR_SPEED = 0.1
+ANGULAR_SPEED = 2.0
 INPUT_TIMEOUT = 0.25
 PUBLISH_RATE = 20.0
 

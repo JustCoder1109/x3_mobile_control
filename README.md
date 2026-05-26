@@ -37,3 +37,9 @@ graph TD
 - 若超过超时未按键，则清空运动状态并发布静止指令
 - 按 `q` 或 Ctrl-C/Ctrl-D 退出程序
 
+### 程序运行平台
+- 硬件：Rosmaster_X3 / Orin开发板
+- 系统：jetpack / docker / ROS2
+- 功能包、节点：hzt_mcnamu_mobile hzt_keyboard_control
+- 程序路径：/root/hzt_ws/src/hzt_mcnamu_mobile/hzt_mcnamu_mobile/hzt_keyboard_control.py
+
