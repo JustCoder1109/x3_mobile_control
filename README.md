@@ -1,1 +1,39 @@
 # x3_mobile_control
+
+## hzt_keyboard_control.py 流程图
+
+```mermaid
+graph TD
+    Start([Start]) --> Init[初始化 ROS2 节点]
+    Init --> Loop{循环读取键盘输入}
+    Loop --> ReadKey["read_key(INPUT_TIMEOUT)"]
+    ReadKey --> |有按键| CheckQuit{按键是否为 q / Ctrl-C / Ctrl-D ?}
+    CheckQuit --> |是| Exit[结束程序]
+    CheckQuit --> |否| Handle["调用 handle_key(key)"]
+    Handle --> KeyType{按键类型}
+    KeyType --> |w/s/a/d| SetLinear[设置 linear_state]
+    KeyType --> |left/right| SetAngular[设置 angular_state]
+    KeyType --> |其他| Ignore[忽略按键]
+    SetLinear --> UpdateTime[更新 last_input_time]
+    SetAngular --> UpdateTime
+    Ignore --> Loop
+    UpdateTime --> Publish[构建 Twist 并 publish]
+    Publish --> Spin["rclpy.spin_once(timeout_sec=0)"]
+    Spin --> Loop
+
+    ReadKey --> |无按键| TimeoutCheck[检查是否超过 INPUT_TIMEOUT]
+    TimeoutCheck --> |超过| Clear["clear_motion()"]
+    Clear --> Publish
+    TimeoutCheck --> |未超过| Publish
+
+    Exit --> End([End])
+```
+
+### 关键流程说明
+
+- 程序初始化 ROS2 节点 `HztKeyboardNode`
+- 通过 `TerminalReader.read_key()` 非阻塞读取键盘输入
+- 按键映射为线性/角速度状态，并发布 `geometry_msgs/Twist` 到 `/cmd_vel`
+- 若超过超时未按键，则清空运动状态并发布静止指令
+- 按 `q` 或 Ctrl-C/Ctrl-D 退出程序
+
