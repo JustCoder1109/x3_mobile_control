@@ -1,7 +1,10 @@
 # x3_mobile_control(ROS2版)
 
 ### 视频
-VID20260526170832.mp4https://www.alipan.com/s/FJusjk6Rocv
+<video controls width="800">
+  <source src="https://JustCoder1109.github.io/x3_mobile_control/X3_mobile.mp4" type="video/mp4">
+  你的浏览器不支持视频播放，请直接访问：https://JustCoder1109.github.io/x3_mobile_control/X3_mobile.mp4
+</video>
 
 ### 程序运行平台
 
