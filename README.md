@@ -2,7 +2,7 @@
 
 ### 视频
 
-[![项目演示视频](https://JustCoder1109.github.io/x3_mobile_control/X3_mobile.mp4)](https://JustCoder1109.github.io/x3_mobile_control/video.html)
+[![alt text](video.png)](https://JustCoder1109.github.io/x3_mobile_control/video.html)
 
 点击上方封面可播放演示视频
 
