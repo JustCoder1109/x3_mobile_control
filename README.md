@@ -1,5 +1,8 @@
 # x3_mobile_control(ROS2版)
 
+### 视频
+VID20260526170832.mp4https://www.alipan.com/s/FJusjk6Rocv
+
 ### 程序运行平台
 
 - 硬件：Rosmaster_X3 / Orin开发板
